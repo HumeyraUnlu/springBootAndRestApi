@@ -47,7 +47,7 @@ public class BookstoreAppController {
 		bookstoreAppService.delete(book);
 	}
 	
-	@PostMapping("/bookstore/update")
+	@PostMapping("/bookstore/{bookStore}/update")
 	public void updateCategory(@RequestBody BookstoreApp book) {
 		bookstoreAppService.update(book);
 	}
