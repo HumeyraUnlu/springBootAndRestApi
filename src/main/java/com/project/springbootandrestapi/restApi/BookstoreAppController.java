@@ -32,11 +32,6 @@ public class BookstoreAppController {
 		return bookstoreAppService.getCategory(category);
 	}
 	
-	@PostMapping("/category/{category}/update")
-	public void updateCategory(@RequestBody BookstoreApp book) {
-		bookstoreAppService.update(book);
-	}
-	
 	@GetMapping("/bookstore/{bookStore}")
 	public List<BookstoreApp> getBookStore(@PathVariable String bookStore){
 		return bookstoreAppService.getBookStore(bookStore);
@@ -50,6 +45,11 @@ public class BookstoreAppController {
 	@PostMapping("/bookstore/{bookStore}/delete")
 	public void deleteToFromBookStore(@RequestBody BookstoreApp book) {
 		bookstoreAppService.delete(book);
+	}
+	
+	@PostMapping("/bookstore/update")
+	public void updateCategory(@RequestBody BookstoreApp book) {
+		bookstoreAppService.update(book);
 	}
 	
 
