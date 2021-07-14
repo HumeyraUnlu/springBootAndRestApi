@@ -56,14 +56,15 @@ public class BookstoreAppManagerImpl implements BookstoreAppService{
 		return this.bookstoreAppDao.getBookStore(bookStore);
 	}
 
-	
+	@Override
+	@Transactional
+	public List<String> getCategories() {
+		return this.bookstoreAppDao.getCategories();
+	}
 
-
-
-	
-
-	
-
-	
-
+	@Override
+	@Transactional
+	public List<String> getBookStores() {
+		return this.bookstoreAppDao.getBookStores();
+	}
 }
