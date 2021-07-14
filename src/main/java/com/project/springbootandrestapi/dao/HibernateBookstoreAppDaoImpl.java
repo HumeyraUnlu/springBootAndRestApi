@@ -47,6 +47,14 @@ public class HibernateBookstoreAppDaoImpl implements BookstoreAppDao{
 	}
 
 	@Override
+	@Transactional 
+	public List<String> getCategories() {
+		Session session = entityManager.unwrap(Session.class);
+		List<String> books = session.createQuery("SELECT category  from BookstoreApp group by category", String.class).getResultList();
+		return books;
+	}
+	
+	@Override
 	@Transactional
 	public List<BookstoreApp> getCategory(String category) {
 		Session session = entityManager.unwrap(Session.class);
@@ -56,12 +64,23 @@ public class HibernateBookstoreAppDaoImpl implements BookstoreAppDao{
 	}
 	
 	@Override
+	@Transactional 
+	public List<String> getBookStores() {
+		Session session = entityManager.unwrap(Session.class);
+		List<String> books = session.createQuery("SELECT bookstore  from BookstoreApp group by bookstore", String.class).getResultList();
+		return books;
+	}
+	
+	
+	@Override
 	public List<BookstoreApp> getBookStore(String bookStore) {
 		Session session = entityManager.unwrap(Session.class);
 		List<BookstoreApp> books = session.createQuery
 				("from BookstoreApp where bookstore='"+bookStore+"' ", BookstoreApp.class).getResultList();
 		return books;   
 	}
+
+
 
 	
 	
