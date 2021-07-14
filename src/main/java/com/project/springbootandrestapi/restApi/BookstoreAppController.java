@@ -26,10 +26,20 @@ public class BookstoreAppController {
 	public List<BookstoreApp> get(){
 		return bookstoreAppService.getAll();
 	}
-		
+	
+	@GetMapping("/category")
+	public List<String> getCategories(){
+		return bookstoreAppService.getCategories();
+	}
+	
 	@GetMapping("/category/{category}")
 	public List<BookstoreApp> getCategory(@PathVariable String category){
 		return bookstoreAppService.getCategory(category);
+	}
+	
+	@GetMapping("/bookstore")
+	public List<String> getBookStores(){
+		return bookstoreAppService.getBookStores();
 	}
 	
 	@GetMapping("/bookstore/{bookStore}")
@@ -52,5 +62,4 @@ public class BookstoreAppController {
 		bookstoreAppService.update(book);
 	}
 	
-
 }
