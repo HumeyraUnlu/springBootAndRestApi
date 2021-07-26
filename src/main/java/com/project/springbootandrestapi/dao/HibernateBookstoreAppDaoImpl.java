@@ -25,6 +25,13 @@ public class HibernateBookstoreAppDaoImpl implements BookstoreAppDao{
 		List<BookstoreApp> books = session.createQuery("from BookstoreApp", BookstoreApp.class).getResultList();
 		return books;
 	}
+	
+	@Override
+	public BookstoreApp getById(int id) {
+		Session session = entityManager.unwrap(Session.class);
+		BookstoreApp bookstoreAppDao=session.get(BookstoreApp.class, id);
+		return bookstoreAppDao;
+	}
 
 	@Override
 	public void add(BookstoreApp book) {
@@ -81,8 +88,13 @@ public class HibernateBookstoreAppDaoImpl implements BookstoreAppDao{
 	}
 
 
+	@Override
+	public List<BookstoreApp> getBookPrices(String name) {
+		Session session = entityManager.unwrap(Session.class);
+		List<BookstoreApp> books = session.createQuery
+				("from BookstoreApp where name='"+name+"' ", BookstoreApp.class).getResultList();
+		return books;   
+	}
+	
 
-	
-	
-	
 }
