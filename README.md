@@ -29,7 +29,3 @@ Implement a Restful Api to remove book from bookstore
 Implement a Restful Api to change book's category
 Unit Tests, Integration Tests expected
  
-BONUS
- 
-Documentation your API(plus)
-Use Docker to run in a container (plus)
